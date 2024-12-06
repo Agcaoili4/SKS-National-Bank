@@ -1,3 +1,5 @@
+-- Patrick MacDonald, Jansen Agcaoili, Bijoy Roy, Ethan Pelletier
+
 -- Create a login and user named “customer_group_[?]” where [?] is your
 -- group letter. (For example, “customer_group_A”.)
 -- Their password should be “customer”.
@@ -11,26 +13,26 @@ USE SKS_National_Bank;
 
 GO
 
-CREATE LOGIN customer_group_A WITH PASSWORD = 'customer';
+CREATE LOGIN customer_group_G WITH PASSWORD = 'customer';
 
-CREATE USER customer_group_A FOR LOGIN customer_group_A;
+CREATE USER customer_group_G FOR LOGIN customer_group_G;
 
-GRANT SELECT ON Customers TO customer_group_A;
+GRANT SELECT ON Customers TO customer_group_G;
 
-GRANT SELECT ON Accounts TO customer_group_A;
+GRANT SELECT ON Accounts TO customer_group_G;
 
-GRANT SELECT ON Customers_Accounts TO customer_group_A;
+GRANT SELECT ON Customers_Accounts TO customer_group_G;
 
-GRANT SELECT ON Transfers TO customer_group_A;
+GRANT SELECT ON Transfers TO customer_group_G;
 
-GRANT SELECT ON Address TO customer_group_A;
+GRANT SELECT ON Address TO customer_group_G;
 
-GRANT SELECT ON Employees_Accounts TO customer_group_A;
--- GRANT SELECT ON Account_Types TO customer_group_A;
+GRANT SELECT ON Employees_Accounts TO customer_group_G;
+-- GRANT SELECT ON Account_Types TO customer_group_G;
 GO
--- Remove the public role from the customer_group_A user
-EXEC sp_droprolemember 'public',
-'customer_group_A';
+-- Remove the public role from the customer_group_G user
+-- EXEC sp_droprolemember 'public',
+-- 'customer_group_G';
 
 GO
 -- Query to check the user and their permissions
@@ -44,12 +46,10 @@ FROM sys.database_principals AS princ
     JOIN sys.database_permissions AS perm ON perm.grantee_principal_id = princ.principal_id
     JOIN sys.objects AS obj ON obj.object_id = perm.major_id
 WHERE
-    princ.name = 'customer_group_A';
+    princ.name = 'customer_group_G';
 
 -- select * from Address;
-
 -- select * from Bank_Employees;
-
 -- UPDATE Address SET City_Name = 'Toronto' WHERE Address_ID = 1;
 
 -- Create a login and user named “accountant_group_[?]” where [?] is your
@@ -59,20 +59,20 @@ WHERE
 -- Their user account should not be able to update tables that are related
 -- to accounts, payments and loans, based on your ERD.
 
-CREATE LOGIN accountant_group_B WITH PASSWORD = 'accountant';
+CREATE LOGIN accountant_group_G WITH PASSWORD = 'accountant';
 
-CREATE USER accountant_group_B FOR LOGIN accountant_group_B;
+CREATE USER accountant_group_G FOR LOGIN accountant_group_G;
 
-GRANT SELECT ON Accounts TO accountant_group_B;
+GRANT SELECT ON Accounts TO accountant_group_G;
 
-GRANT SELECT ON Transfers TO accountant_group_B;
+GRANT SELECT ON Transfers TO accountant_group_G;
 
-GRANT SELECT ON Account_Types TO accountant_group_B;
+GRANT SELECT ON Account_Types TO accountant_group_G;
 
-Grant Select ON Employees_Accounts TO accountant_group_B;
+Grant Select ON Employees_Accounts TO accountant_group_G;
 
 -- Remove the public role from the customer_group_A user
-EXEC sp_droprolemember 'public', 'accountant_group_B';
+-- EXEC sp_droprolemember 'public', 'accountant_group_G';
 
 GO
 -- Query to check the user and their permissions
@@ -86,7 +86,19 @@ FROM sys.database_principals AS princ
     JOIN sys.database_permissions AS perm ON perm.grantee_principal_id = princ.principal_id
     JOIN sys.objects AS obj ON obj.object_id = perm.major_id
 WHERE
-    princ.name = 'accountant_group_B';
+    princ.name = 'accountant_group_G';
+
+-- SELECT * FROM Accounts;
+-- UPDATE Accounts SET Balance = 1000 WHERE Account_ID = 1;
+
+
+
+
+--- Test Queries 
+
+-- select * from Address;
+-- select * from Bank_Employees;
+-- UPDATE Address SET City_Name = 'Toronto' WHERE Address_ID = 1;
 
 -- SELECT * FROM Accounts;
 -- UPDATE Accounts SET Balance = 1000 WHERE Account_ID = 1;

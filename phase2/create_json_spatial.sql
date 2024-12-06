@@ -1,3 +1,5 @@
+-- Patrick MacDonald, Jansen Agcaoili, Bijoy Roy, Ethan Pelletier
+
 Use SKS_National_Bank;
 
 GO
@@ -23,8 +25,6 @@ SET
     );
 GO
 
-SELECT * FROM Address
-SELECT * FROM Facilities
 
 --Add Spatial data
 ALTER TABLE Facilities ADD Geom GEOMETRY
@@ -148,3 +148,7 @@ UPDATE
 		WHERE
 			Facility_ID = 6 AND Address_ID = 6
 GO
+
+
+SELECT * FROM Address
+SELECT * FROM Facilities

@@ -1,3 +1,5 @@
+-- Patrick MacDonald, Jansen Agcaoili, Bijoy Roy, Ethan Pelletier
+
 USE SKS_NATIONAL_BANK;
 ----------------------------------------------------------------------------------------------------------------------------
 -- Replace the default clustered index.

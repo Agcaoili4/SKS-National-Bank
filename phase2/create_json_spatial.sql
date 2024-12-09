@@ -148,7 +148,38 @@ UPDATE
 		WHERE
 			Facility_ID = 6 AND Address_ID = 6
 GO
-
-
-SELECT * FROM Address
+	
+--See the Spatial results by selecting all items from Facilities
 SELECT * FROM Facilities
+GO
+--See individual geom and geog by their facility_ID
+
+--ID 1
+SELECT Geom, Geog FROM Facilities
+WHERE Facility_ID = 1
+GO
+
+--ID 2
+SELECT Geom, Geog FROM Facilities
+WHERE Facility_ID = 2
+GO
+
+--ID 3
+SELECT Geom, Geog FROM Facilities
+WHERE Facility_ID = 3
+GO
+
+--ID 4
+SELECT Geom, Geog FROM Facilities
+WHERE Facility_ID = 4
+GO
+
+--ID 5
+SELECT Geom, Geog FROM Facilities
+WHERE Facility_ID = 5
+GO
+
+--ID 6
+SELECT Geom, Geog FROM Facilities
+WHERE Facility_ID = 6
+GO

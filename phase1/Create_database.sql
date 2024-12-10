@@ -54,7 +54,7 @@ CREATE TABLE Customers
 );
 
 
-CREATE TABLE Bank_Employees
+CREATE TABLE Bank_Employees 
 (
 	Employee_ID INT IDENTITY PRIMARY KEY,
 	Employee_Address_ID INT NOT NULL,
@@ -69,21 +69,21 @@ CREATE TABLE Bank_Employees
 	FOREIGN KEY (Employee_Address_ID) REFERENCES Address(Address_ID) ON DELETE CASCADE
 );
 
-CREATE TABLE Facilities_Employees
+CREATE TABLE Facilities_Employees 
 (
 	Facility_ID INT NOT NULL,
 	Employee_ID INT NOT NULL,
 	CONSTRAINT FK_Facilities_Employees_Facility_ID FOREIGN KEY (Facility_ID) REFERENCES Facilities(Facility_ID) ON DELETE CASCADE
 );
 
-CREATE TABLE Account_Types
+CREATE TABLE Account_Types 
 (
 	Account_Type_ID INT IDENTITY PRIMARY KEY,
 	Account_Type_Name VARCHAR(50) NOT NULL
 	
 );
 
-CREATE TABLE Accounts
+CREATE TABLE Accounts 
 (
 	Account_ID INT IDENTITY CONSTRAINT PK_Account_ID PRIMARY KEY,
 	Account_Type_ID INT NOT NULL,
@@ -96,7 +96,7 @@ CREATE TABLE Accounts
 	CONSTRAINT FK_Facility_Facility_ID FOREIGN KEY (Facility_ID) REFERENCES Facilities(Facility_ID) ON DELETE CASCADE
 );
 
-CREATE TABLE Customers_Accounts
+CREATE TABLE Customers_Accounts 
 (
 	Customer_ID INT NOT NULL,
 	Account_ID INT NOT NULL,
@@ -105,7 +105,7 @@ CREATE TABLE Customers_Accounts
 	PRIMARY KEY (Customer_ID, Account_ID)
 );
 
-CREATE TABLE Employees_Accounts
+CREATE TABLE Employees_Accounts 
 (
 	Employee_ID INT NOT NULL,
 	Account_ID INT NOT NULL,

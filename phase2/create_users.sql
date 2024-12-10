@@ -10,6 +10,7 @@
 USE Master;
 
 USE SKS_National_Bank;
+select * from accounts;
 
 GO
 
@@ -28,7 +29,7 @@ GRANT SELECT ON Transfers TO customer_group_G;
 GRANT SELECT ON Address TO customer_group_G;
 
 GRANT SELECT ON Employees_Accounts TO customer_group_G;
--- GRANT SELECT ON Account_Types TO customer_group_G;
+GRANT SELECT ON Account_Types TO customer_group_G;
 GO
 -- Remove the public role from the customer_group_G user
 -- EXEC sp_droprolemember 'public',
@@ -71,6 +72,19 @@ GRANT SELECT ON Account_Types TO accountant_group_G;
 
 Grant Select ON Employees_Accounts TO accountant_group_G;
 
+GRANT SELECT ON Customers_Accounts TO accountant_group_G;
+
+GRANT SELECT ON Customers TO accountant_group_G;
+
+GRANT SELECT ON Address TO accountant_group_G;
+
+GRANT SELECT ON Facilities TO accountant_group_G;
+
+GRANT SELECT ON Bank_Employees TO accountant_group_G;
+
+GRANT SELECT ON Facilities_Employees TO accountant_group_G;
+
+
 -- Remove the public role from the customer_group_A user
 -- EXEC sp_droprolemember 'public', 'accountant_group_G';
 
@@ -90,8 +104,6 @@ WHERE
 
 -- SELECT * FROM Accounts;
 -- UPDATE Accounts SET Balance = 1000 WHERE Account_ID = 1;
-
-
 
 
 --- Test Queries 

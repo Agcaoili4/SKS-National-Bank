@@ -10,7 +10,6 @@
 USE Master;
 
 USE SKS_National_Bank;
-select * from accounts;
 
 GO
 

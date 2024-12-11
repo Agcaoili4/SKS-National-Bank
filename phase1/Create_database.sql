@@ -1,7 +1,7 @@
 -- Patrick MacDonald, Jansen Agcaoili, Bijoy Roy, Ethan Pelletier
 USE master
 GO
-GO
+
 -- Terminate connections to the BVC_Portal database
 ALTER DATABASE SKS_National_Bank
 SET

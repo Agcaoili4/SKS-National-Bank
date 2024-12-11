@@ -103,7 +103,7 @@ BEGIN
         a.Balance,
         a.Interest_rate,
         f.Facility_Name AS Branch_Name,
-        a.Data_Last_transaction AS Last_Transaction_Date
+        a.Date_Last_transaction AS Last_Transaction_Date
     FROM Customers c
     INNER JOIN Customers_Accounts ca ON c.Customer_ID = ca.Customer_ID
     INNER JOIN Accounts a ON ca.Account_ID = a.Account_ID
@@ -142,7 +142,7 @@ BEGIN
     INNER JOIN Account_Types at ON a.Account_Type_ID = at.Account_Type_ID
     INNER JOIN Customers_Accounts ca ON a.Account_ID = ca.Account_ID
     WHERE f.Is_Branch = 1
-    AND a.Data_Last_transaction BETWEEN @StartDate AND @EndDate
+    AND a.Date_Last_transaction BETWEEN @StartDate AND @EndDate
     GROUP BY f.Facility_Name
     ORDER BY Total_Deposits DESC;
 END
@@ -265,16 +265,16 @@ BEGIN
         c.First_Name + ' ' + c.Last_Name as Customer_Name,
         at.Account_Type_Name,
         a.Balance,
-        a.Data_Last_transaction as Last_Activity_Date,
-        DATEDIFF(DAY, a.Data_Last_transaction, GETDATE()) as Days_Inactive,
+        a.Date_Last_transaction as Last_Activity_Date,
+        DATEDIFF(DAY, a.Date_Last_transaction, GETDATE()) as Days_Inactive,
         f.Facility_Name as Branch_Name
     FROM Accounts a
     INNER JOIN Customers_Accounts ca ON a.Account_ID = ca.Account_ID
     INNER JOIN Customers c ON ca.Customer_ID = c.Customer_ID
     INNER JOIN Account_Types at ON a.Account_Type_ID = at.Account_Type_ID
     INNER JOIN Facilities f ON a.Facility_ID = f.Facility_ID
-    WHERE a.Data_Last_transaction < @CutoffDate
-    ORDER BY a.Data_Last_transaction;
+    WHERE a.Date_Last_transaction < @CutoffDate
+    ORDER BY a.Date_Last_transaction;
 END
 GO
 
@@ -296,7 +296,7 @@ BEGIN
             c.First_Name + ' ' + c.Last_Name as Customer_Name,
             SUM(a.Balance) as Total_Balance,
             COUNT(DISTINCT a.Account_ID) as Number_of_Accounts,
-            MAX(a.Data_Last_transaction) as Last_Activity_Date
+            MAX(a.Date_Last_transaction) as Last_Activity_Date
         FROM Customers c
         INNER JOIN Customers_Accounts ca ON c.Customer_ID = ca.Customer_ID
         INNER JOIN Accounts a ON ca.Account_ID = a.Account_ID

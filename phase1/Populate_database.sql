@@ -6,7 +6,6 @@ USE SKS_National_Bank
 GO
 
 
-
 INSERT INTO Address
 	(City_Name, Province_Name, Street_Number, Street_Name, Appt_Number)
 VALUES

@@ -28,10 +28,14 @@ GO
 
 --Add Spatial data
 ALTER TABLE Facilities ADD Geom GEOMETRY
+GO
 ALTER TABLE Facilities ADD Geog GEOGRAPHY
+GO
 --Add the latitude and longtitude of each facility
 ALTER TABLE Facilities ADD Latitude FLOAT
+GO
 ALTER TABLE Facilities ADD Longitude FLOAT
+GO
 
 --Declare the coordinates
 --Longitude and Latitude coordinates on where the bank is located

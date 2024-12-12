@@ -58,7 +58,7 @@ GO
 -- Select * From Transfers;
 
 GO
-Alter TRIGGER Audit_Savings_Account_Opened_Trigger ON Accounts
+CREATE TRIGGER Audit_Savings_Account_Opened_Trigger ON Accounts
 AFTER INSERT AS
 BEGIN
 INSERT INTO

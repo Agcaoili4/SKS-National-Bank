@@ -210,7 +210,7 @@ BEGIN
 END
 GO
 
-select * from Employees_Accounts;
+-- select * from Employees_Accounts;
 
 -- 8. Account Activity Report
 -- Generates detailed activity report for an account
@@ -319,23 +319,23 @@ END
 GO
 
 
--- 1 
-EXEC Track_Loan 'loan';
--- 2 Get all employees in a branch
-EXEC Get_Employees 'office 1';
--- 3 Transfer money to account 1
-EXEC Transfer_Money 1, 20000.00, '2024-10-24';
--- 4 Get summary for customer ID 1
-EXEC Get_Customer_Summary 1;
--- 5 Get branch performance for the last month
-EXEC Branch_Performance '2023-01-01', '2023-04-01';
--- 6 Monitor transactions above $10,000
-EXEC Monitor_Large_Transactions 10000.00, '2024-10-01', '2024-10-26';
--- 7 Monitor employee performance
-EXEC Employee_Performance 1;
--- 8 Get account activity for account 1
-EXEC Account_Activity_Report 1, '2024-10-01', '2024-10-26';
--- 9 Find accounts inactive for 90 days
-EXEC Find_Inactive_Accounts 90;
--- 10 Find customers with total balance above $50,000
-EXEC High_Value_Customer_Report 50000.00;
+-- -- 1 
+-- EXEC Track_Loan 'loan';
+-- -- 2 Get all employees in a branch
+-- EXEC Get_Employees 'office 1';
+-- -- 3 Transfer money to account 1
+-- EXEC Transfer_Money 1, 20000.00, '2024-10-24';
+-- -- 4 Get summary for customer ID 1
+-- EXEC Get_Customer_Summary 1;
+-- -- 5 Get branch performance for the last month
+-- EXEC Branch_Performance '2023-01-01', '2023-04-01';
+-- -- 6 Monitor transactions above $10,000
+-- EXEC Monitor_Large_Transactions 10000.00, '2024-10-01', '2024-10-26';
+-- -- 7 Monitor employee performance
+-- EXEC Employee_Performance 1;
+-- -- 8 Get account activity for account 1
+-- EXEC Account_Activity_Report 1, '2024-10-01', '2024-10-26';
+-- -- 9 Find accounts inactive for 90 days
+-- EXEC Find_Inactive_Accounts 90;
+-- -- 10 Find customers with total balance above $50,000
+-- EXEC High_Value_Customer_Report 50000.00;

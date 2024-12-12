@@ -36,17 +36,17 @@ GO
 
 GO
 -- Query to check the user and their permissions
-SELECT
-    princ.name AS user_name,
-    perm.permission_name,
-    perm.state_desc AS permission_state,
-    obj.name AS object_name,
-    obj.type_desc AS object_type
-FROM sys.database_principals AS princ
-    JOIN sys.database_permissions AS perm ON perm.grantee_principal_id = princ.principal_id
-    JOIN sys.objects AS obj ON obj.object_id = perm.major_id
-WHERE
-    princ.name = 'customer_group_G';
+-- SELECT
+--     princ.name AS user_name,
+--     perm.permission_name,
+--     perm.state_desc AS permission_state,
+--     obj.name AS object_name,
+--     obj.type_desc AS object_type
+-- FROM sys.database_principals AS princ
+--     JOIN sys.database_permissions AS perm ON perm.grantee_principal_id = princ.principal_id
+--     JOIN sys.objects AS obj ON obj.object_id = perm.major_id
+-- WHERE
+--     princ.name = 'customer_group_G';
 
 -- select * from Address;
 -- select * from Bank_Employees;
@@ -89,17 +89,17 @@ GRANT SELECT ON Facilities_Employees TO accountant_group_G;
 
 GO
 -- Query to check the user and their permissions
-SELECT
-    princ.name AS user_name,
-    perm.permission_name,
-    perm.state_desc AS permission_state,
-    obj.name AS object_name,
-    obj.type_desc AS object_type
-FROM sys.database_principals AS princ
-    JOIN sys.database_permissions AS perm ON perm.grantee_principal_id = princ.principal_id
-    JOIN sys.objects AS obj ON obj.object_id = perm.major_id
-WHERE
-    princ.name = 'accountant_group_G';
+-- SELECT
+--     princ.name AS user_name,
+--     perm.permission_name,
+--     perm.state_desc AS permission_state,
+--     obj.name AS object_name,
+--     obj.type_desc AS object_type
+-- FROM sys.database_principals AS princ
+--     JOIN sys.database_permissions AS perm ON perm.grantee_principal_id = princ.principal_id
+--     JOIN sys.objects AS obj ON obj.object_id = perm.major_id
+-- WHERE
+--     princ.name = 'accountant_group_G';
 
 -- SELECT * FROM Accounts;
 -- UPDATE Accounts SET Balance = 1000 WHERE Account_ID = 1;
